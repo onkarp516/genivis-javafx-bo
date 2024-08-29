@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<ScrollPane fx:id="spRootPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color: #d9f0fb;"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.master.areaHeadCreateController">
+    <content>
+        <BorderPane style="-fx-background-color: #d9f0fb;">
+            <bottom>
+                <!-- ++++++++++++++++++++++++++++++++++++++++++++++++12th Submit and Cancel Buttons++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                <HBox id="supplierTableMainDiv" alignment="BOTTOM_RIGHT" spacing="10"
+                      style="-fx-background-color: #D9F0FB;" BorderPane.alignment="CENTER">
+                    <Button fx:id="btnAreaHeadCreateSubmit" styleClass="submit-btn" text="Submit"/>
+                    <Button fx:id="btnAreaHeadCreateCancel" onAction="#cancelButton" styleClass="cancel-btn"
+                            text="Cancel"/>
+                </HBox>
+            </bottom>
+            <center>
+                <!-- ++++++++++++++++++++++++++++++++++++++++++++++++0th Main VBox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                <VBox fx:id="boxV" alignment="TOP_CENTER" style="-fx-background-color: #d9f0fb;"
+                      BorderPane.alignment="CENTER">
+                    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++2nd Main VBox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                    <VBox id="topMainDiv" VBox.vgrow="ALWAYS">
+
+                        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++1st Main VBox for Inside Card Like to Place Fields++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                        <VBox id="topMainDiv" spacing="15.0"
+                              style="-fx-background-color: #f6f6f9; -fx-background-radius: 5px;                         -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0); "
+                              VBox.vgrow="ALWAYS">
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++1st Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <!--                                <Label minWidth="140" prefWidth="180" maxWidth="200"-->
+                                <!--                                       style=" -fx-font-size: 17px;-fx-text-fill: #11A6F6; "-->
+                                <!--                                       text="Role Information" underline="true"/>-->
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="140" styleClass="commanTitleStyle"
+                                       stylesheets="@../css/companyStyles.css" text="Role Information"
+                                       underline="true"/>
+                                <TextField disable="true" editable="false" maxHeight="1" minHeight="1" prefHeight="1"
+                                           style="-fx-background-color: #36454F;" HBox.hgrow="ALWAYS"/>
+                            </HBox>
+                            <!-- +++++++++  +++++++++++++++++++++++++++++++++++++++2nd Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+                                <Label fx:id="lbAreaHeadCreateRole" maxWidth="150" minWidth="100" prefWidth="130"
+                                       style=" -fx-font-size: 14px;" text="Role*"/>
+                                <ComboBox fx:id="cmbAreaHeadCreateRole" layoutX="173.0" layoutY="77.0"
+                                          onAction="#handleComboBoxActionRoleHead" prefHeight="27.0" prefWidth="263.0"
+                                          promptText="Select Role" visible="true" HBox.hgrow="ALWAYS"/>
+                                <HBox fx:id="stateSeleHbox" visible="false">
+                                    <Label maxWidth="150" minWidth="60" prefWidth="80" style=" -fx-font-size: 14px;"
+                                           text="   State*"/>
+                                    <ComboBox fx:id="cmbAreaHeadCreateState" onAction="#handleComboBoxActionStateHead"
+                                              prefHeight="27.0" prefWidth="263.0" promptText="Select State"
+                                              HBox.hgrow="ALWAYS"/>
+
+                                </HBox>
+
+                                <!--                                For zonal selection-->
+                                <HBox fx:id="zoneSeleHbox" visible="false">
+                                    <Label maxWidth="150" minWidth="60" prefWidth="80" style=" -fx-font-size: 14px;"
+                                           text="   Zone*"/>
+                                    <ComboBox fx:id="cmbAreaHeadCreateZone" onAction="#handleComboBoxActionZoneHead"
+                                              prefHeight="27.0" prefWidth="263.0" promptText="Select Zone"/>
+
+                                    <Button fx:id="AreaHeadZoneAdd" maxWidth="27.0" minWidth="27.0"
+                                            onAction="#openAreaHeadPopupForZone" styleClass="plus-button">
+                                        <graphic>
+                                            <ImageView fitHeight="15.0" fitWidth="15.0">
+                                                <image>
+                                                    <Image url="@../assets/add3.png"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   State Head*"/>
+                                    <TextField fx:id="tfZHStateHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                </HBox>
+
+
+                                <!--                                For district selection-->
+                                <HBox fx:id="regionSeleHbox" visible="false">
+                                    <Label maxWidth="150" minWidth="60" prefWidth="80" style=" -fx-font-size: 14px;"
+                                           text="   Region*"/>
+                                    <ComboBox fx:id="cmbAreaHeadCreateRegion" onAction="#handleComboBoxActionRegionHead"
+                                              prefHeight="27.0" prefWidth="263.0" promptText="Select Region"/>
+
+
+                                    <Button fx:id="AreaHeadRegionAdd" maxWidth="27.0" minWidth="27.0"
+                                            onAction="#openAreaHeadPopupForRegion" styleClass="plus-button">
+                                        <graphic>
+                                            <ImageView fitHeight="15.0" fitWidth="15.0">
+                                                <image>
+                                                    <Image url="@../assets/add3.png"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   Zone Head*"/>
+                                    <TextField fx:id="tfRGZoneHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   State Head*"/>
+                                    <TextField fx:id="tfRGStateHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                </HBox>
+
+
+                                <!--                                For District selection-->
+                                <HBox fx:id="districtSeleHbox" visible="false">
+                                    <Label maxWidth="150" minWidth="60" prefWidth="80" style=" -fx-font-size: 14px;"
+                                           text="   District*"/>
+                                    <ComboBox fx:id="cmbAreaHeadCreateDistrict"
+                                              onAction="#handleComboBoxActionDistrictHead" prefHeight="27.0"
+                                              prefWidth="263.0" promptText="Select District"/>
+
+
+                                    <Button fx:id="AreaHeadDistrictAdd" maxWidth="27.0" minWidth="27.0"
+                                            onAction="#openAreaHeadPopupForDistrict" styleClass="plus-button">
+                                        <graphic>
+                                            <ImageView fitHeight="15.0" fitWidth="15.0">
+                                                <image>
+                                                    <Image url="@../assets/add3.png"/>
+                                                </image>
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   Regional Head*"/>
+                                    <TextField fx:id="tfDSRegionHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   Zone Head*"/>
+                                    <TextField fx:id="tfDSZoneHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                    <Label maxWidth="150" minWidth="60" prefWidth="120" style=" -fx-font-size: 14px;"
+                                           text="   State Head*"/>
+                                    <TextField fx:id="tfDSStateHead" disable="true" maxWidth="500" minWidth="100"
+                                               prefWidth="200" style="-fx-background-color:#e9ecef;">
+                                    </TextField>
+
+                                </HBox>
+
+                            </HBox>
+                            <!--                            &lt;!&ndash; ++++++++++++++++++++++++++++++++++++++++++++++++3rd Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="Username*">
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateUsername" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Username">
+
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="160" style=" -fx-font-size: 14px; "
+                                       text="   Password*">
+
+                                </Label>
+
+                                <PasswordField fx:id="tfAreaHeadCreatePassword" maxWidth="500" minWidth="100"
+                                               prefWidth="200" promptText="Password"/>
+
+                                <TextField fx:id="tfAreaHeadCreatePasswordInText" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Password" visible="false"/>
+                                <Button fx:id="btnPass" maxWidth="27.0" minWidth="27.0" onAction="#passwordBtn">
+                                </Button>
+
+                            </HBox>
+
+                            <!-- ++++++++++++++++++++++++++++++++++++++++++++++++4th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <!--                                <Label minWidth="140" prefWidth="180" maxWidth="200"-->
+                                <!--                                       style=" -fx-font-size: 17px;-fx-text-fill: #11A6F6; "-->
+                                <!--                                       text="Personal Information" underline="true"/>-->
+                                <Label maxWidth="150" minWidth="100" prefWidth="150" styleClass="commanTitleStyle"
+                                       stylesheets="@../css/companyStyles.css" text="Personal Information"
+                                       underline="true"/>
+                                <TextField disable="true" editable="false" maxHeight="1" minHeight="1" prefHeight="1"
+                                           style="-fx-background-color: #36454F;" HBox.hgrow="ALWAYS"/>
+                            </HBox>
+
+                            <!--&lt;!&ndash; ++++++++++++++++++++++++++++++++++++++++++++++++5th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="First Name*">
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateFirstName" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="First Name">
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="   Middle Name">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateMiddleName" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Middle Name">
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="   Last Name*">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateLastName" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Last Name">
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="     Email Id*">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateEmail" maxWidth="500" minWidth="100" prefWidth="200"
+                                           promptText="Email Id">
+                                </TextField>
+
+
+                            </HBox>
+
+                            <!--                            &lt;!&ndash; ++++++++++++++++++++++++++++++++++++++++++++++++6th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="Mobile No.*">
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateMobile" maxWidth="500" minWidth="100" prefWidth="200"
+                                           promptText="Mobile No.">
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="   WhatsApp No">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateWhatsApp" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="WhatsApp No">
+                                </TextField>
+
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="   Birth Date*">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <!--                                <TextField fx:id="dpAreaHeadCreateDOB" -->
+                                <!--                                            minWidth="100" prefWidth="200"-->
+                                <!--                                            maxWidth="500" promptText="DD/MM/YYYY"/>-->
+
+                                <TextField fx:id="dpAreaHeadCreateDOB" maxWidth="200" minWidth="113" prefWidth="130"
+                                           promptText="DD/MM/YYYY" HBox.hgrow="ALWAYS"/>
+
+                                <!--                                <Label minWidth="80" prefWidth="80" maxWidth="80"-->
+                                <!--                                       style=" -fx-font-size: 14px; "-->
+                                <!--                                       text="    Gender*  "/>-->
+                                <Label maxWidth="80" minWidth="80" prefWidth="80" text="    Gender*  "/>
+                                <ComboBox fx:id="cmbFranchiseCreateGender" maxWidth="120" minWidth="100"
+                                          onAction="#handleComboBoxActionGender" prefWidth="120" promptText="Select"
+                                          HBox.hgrow="ALWAYS"/>
+
+
+                            </HBox>
+
+
+                            <!--                            Permenent Address Block-->
+
+                            <HBox spacing="10">
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                        <children>
+                                            <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css"
+                                                   text="Permanent Address" underline="true"/>
+                                            <TextField disable="true" editable="false" maxHeight="1" minHeight="1"
+                                                       prefHeight="1" style="-fx-background-color: #36454F;"
+                                                       HBox.hgrow="ALWAYS"/>
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <HBox>
+                                            <padding>
+                                                <Insets left="5" right="64" top="6"/>
+                                            </padding>
+                                            <TextFlow>
+                                                <Text text="Address"/>
+                                                <!--                                                <Text styleClass="red" text="*"/>-->
+                                            </TextFlow>
+                                        </HBox>
+                                        <TextField fx:id="tfAreaHeadCreatePermanentAddress" promptText="Address"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+                                    <FlowPane hgap="10" vgap="10">
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets left="5" right="64" top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Label text="Pincode*"/>
+                                                        <!--                                                        <Text styleClass="red" text="*"/>-->
+                                                    </TextFlow>
+                                                </HBox>
+                                                <TextField fx:id="tfAreaHeadCreatePincode" promptText="Pincode"
+                                                           HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="Area*"/>
+                                                <ComboBox fx:id="cmbAreaHeadCreateArea"
+                                                          onAction="#handleComboBoxActionArea" promptText="Area"
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold;" text="City:"/>
+                                                <Label fx:id="lbAreaHeadCreateCity" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold;" text="State:"/>
+                                                <Label fx:id="lbAreaHeadCreateState" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets left="5" right="64" top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Label text="Country*"/>
+                                                        <!--                                                        <Text styleClass="red" text="  "/>-->
+                                                    </TextFlow>
+                                                </HBox>
+                                                <ComboBox fx:id="cmbAreaHeadCreateCountry"
+                                                          onAction="#handleComboBoxActionCountry" promptText="Country"
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                    </FlowPane>
+
+
+                                    <!--                                    <GridPane hgap="10.0" vgap="10.0">-->
+                                    <!--                                        <children>-->
+                                    <!--                                            <StackPane>-->
+                                    <!--                                                <children>-->
+                                    <!--                                                    <Label text="  Pincode" minWidth="60" prefWidth="120"-->
+                                    <!--                                                           maxWidth="120"/>-->
+                                    <!--                                                    <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                                    <!--                                                        <padding>-->
+                                    <!--                                                            <Insets left="8"/>-->
+                                    <!--                                                        </padding>-->
+                                    <!--                                                    </Label>-->
+                                    <!--                                                </children>-->
+                                    <!--                                            </StackPane>-->
+                                    <!--                                            <Label text="     Area" GridPane.columnIndex="2"/>-->
+
+                                    <!--                                        </children>-->
+                                    <!--                                        <columnConstraints>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                        </columnConstraints>-->
+                                    <!--                                        <rowConstraints>-->
+                                    <!--                                            <RowConstraints/>-->
+                                    <!--                                            <RowConstraints/>-->
+                                    <!--                                        </rowConstraints>-->
+                                    <!--                                    </GridPane>-->
+                                </VBox>
+                                <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+                                    <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                        <Label styleClass="commanTitleStyle" stylesheets="@../css/companyStyles.css"
+                                               text="Residential Address" underline="true"/>
+                                        <CheckBox fx:id="cbAreaHeadCreateSameasAddress" mnemonicParsing="false"
+                                                  onAction="#setSameAsAddress" stylesheets="@../css/companyStyles.css"
+                                                  text="Same as Address"/>
+                                        <TextField disable="true" editable="false" maxHeight="1" minHeight="1"
+                                                   prefHeight="1" style="-fx-background-color: #36454F;"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <HBox>
+                                            <padding>
+                                                <Insets top="6"/>
+                                            </padding>
+                                            <TextFlow>
+                                                <Text text="Address"/>
+                                                <!--                                                <Text styleClass="red" text="*"/>-->
+                                            </TextFlow>
+                                        </HBox>
+                                        <TextField fx:id="tfAreaHeadCreateTemporaryAddress" promptText="Address"
+                                                   HBox.hgrow="ALWAYS"/>
+                                    </HBox>
+
+                                    <FlowPane hgap="10" vgap="10">
+
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Label text="Pincode*"/>
+                                                    </TextFlow>
+                                                </HBox>
+                                                <TextField fx:id="tfAreaHeadCreateRPincode" promptText="Pincode"
+                                                           HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label text="Area*"/>
+                                                <ComboBox fx:id="cmbAreaHeadCreateRArea"
+                                                          onAction="#handleComboBoxActionAreaOfResidential"
+                                                          promptText="Area" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold;" text="City"/>
+                                                <Label fx:id="lbAreaHeadCreateRCity" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold;" text="State"/>
+                                                <Label fx:id="lbAreaHeadCreateRState" HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <children>
+
+                                                <HBox>
+                                                    <padding>
+                                                        <Insets top="6"/>
+                                                    </padding>
+                                                    <TextFlow>
+                                                        <Label text="Country*"/>
+
+                                                        <!--                                                        <Text styleClass="red" text="  "/>-->
+                                                    </TextFlow>
+                                                </HBox>
+                                                <ComboBox fx:id="cmbAreaHeadCreateRCountry" promptText="Country"
+                                                          HBox.hgrow="ALWAYS"/>
+                                            </children>
+                                        </HBox>
+                                    </FlowPane>
+
+                                    <!--                                    <GridPane hgap="10.0" vgap="10.0">-->
+                                    <!--                                        <columnConstraints>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints/>-->
+                                    <!--                                            <ColumnConstraints hgrow="ALWAYS"/>-->
+                                    <!--                                        </columnConstraints>-->
+                                    <!--                                        <rowConstraints>-->
+                                    <!--                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>-->
+                                    <!--                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>-->
+                                    <!--                                        </rowConstraints>-->
+                                    <!--                                        <children>-->
+                                    <!--                                            <StackPane>-->
+                                    <!--                                                <children>-->
+                                    <!--                                                    <Label text="       Pincode" minWidth="100" prefWidth="150"-->
+                                    <!--                                                           maxWidth="175"/>-->
+                                    <!--                                                    <Label minWidth="15" style="-fx-text-fill: red; " text=" * ">-->
+                                    <!--                                                        <padding>-->
+                                    <!--                                                            <Insets left="20"/>-->
+                                    <!--                                                        </padding>-->
+                                    <!--                                                    </Label>-->
+                                    <!--                                                </children>-->
+                                    <!--                                            </StackPane>-->
+                                    <!--                                            <Label text="     Area" GridPane.columnIndex="2"/>-->
+
+
+                                    <!--                                        </children>-->
+                                    <!--                                    </GridPane>-->
+                                </VBox>
+                            </HBox>
+
+
+                            <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++10th Residential Address Right Side++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <!--                                <Label minWidth="140" prefWidth="180" maxWidth="200"-->
+                                <!--                                       style=" -fx-font-size: 17px;-fx-text-fill: #11A6F6; "-->
+                                <!--                                       text="Document Address" underline="true"/>-->
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="140" styleClass="commanTitleStyle"
+                                       stylesheets="@../css/companyStyles.css" text="Document Address   "
+                                       underline="true"/>
+                                <TextField disable="true" editable="false" maxHeight="1" minHeight="1" prefHeight="1"
+                                           style="-fx-background-color: #36454F;" HBox.hgrow="ALWAYS"/>
+
+                            </HBox>
+
+
+                            <!--&lt;!&ndash; ++++++++++++++++++++++++++++++++++++++++++++++++11th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="Bank Name">
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateBankName" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Bank Name">
+                                </TextField>
+
+
+                                <Label maxWidth="200" minWidth="150" prefWidth="150" style=" -fx-font-size: 14px;"
+                                       text="   Bank Account No.">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateBankAccountNo" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Bank Account No.">
+                                </TextField>
+
+
+                                <Label maxWidth="130" minWidth="60" prefWidth="80" style=" -fx-font-size: 14px;"
+                                       text="   IFSC">
+                                    <!--                                    <padding>-->
+                                    <!--                                        <Insets left="15" right="15"/>-->
+                                    <!--                                    </padding>-->
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateIFSC" maxWidth="500" minWidth="100" prefWidth="200"
+                                           promptText="IFSC">
+                                </TextField>
+
+                                <!--                                not visibled-->
+                                <Label maxWidth="40" minWidth="5" prefWidth="10" style=" -fx-font-size: 14px;"
+                                       text="not visibled" visible="false">
+                                </Label>
+
+                                <Button fx:id="btnAreaHeadCreateImgBank" minWidth="100" mnemonicParsing="false"
+                                        prefHeight="30.0" prefWidth="104.0" text="Choose File"/>
+                                <TextField fx:id="tfAreaHeadCreateBank" minWidth="100" prefHeight="30.0"
+                                           prefWidth="550.0" promptText="No fle choosen"/>
+
+
+                            </HBox>
+
+                            <!--&lt;!&ndash; ++++++++++++++++++++++++++++++++++++++++++++++++12th Row++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&ndash;&gt;-->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f6f6f9;">
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="Adhaar No.*">
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreateAdhaarText" maxWidth="500" minWidth="100"
+                                           prefWidth="200" promptText="Adhaar Card No.">
+                                </TextField>
+
+                                <!--                                not visibled-->
+                                <Label maxWidth="40" minWidth="5" prefWidth="10" style=" -fx-font-size: 14px;"
+                                       text="not visi" visible="false">
+                                </Label>
+
+                                <Button fx:id="btnAreaHeadCreateImgAdhaar" minWidth="100" mnemonicParsing="false"
+                                        prefHeight="30.0" prefWidth="104.0" text="Choose File"/>
+                                <TextField fx:id="tfAreaHeadCreateAdhaar" minWidth="100" prefHeight="30.0"
+                                           prefWidth="159.0" promptText="No fle choosen"/>
+
+                                <!--                                not visibled-->
+                                <Label maxWidth="40" minWidth="5" prefWidth="10" style=" -fx-font-size: 14px;"
+                                       text="not visi" visible="false">
+                                </Label>
+
+                                <Label maxWidth="150" minWidth="100" prefWidth="130" style=" -fx-font-size: 14px;"
+                                       text="   Pan Card.*">
+
+                                </Label>
+
+                                <TextField fx:id="tfAreaHeadCreatePanText" maxWidth="500" minWidth="100" prefWidth="200"
+                                           promptText="Pan Card.">
+
+                                </TextField>
+
+
+                                <!--                                not visibled-->
+                                <Label maxWidth="40" minWidth="5" prefWidth="10" style=" -fx-font-size: 14px;"
+                                       text="not visi" visible="false">
+                                </Label>
+                                <Button fx:id="btnAreaHeadCreateImgPan" minWidth="100" mnemonicParsing="false"
+                                        prefHeight="30.0" prefWidth="104.0" text="Choose File"/>
+                                <TextField fx:id="tfAreaHeadCreatePan" minWidth="100" prefHeight="30.0"
+                                           prefWidth="159.0" promptText="No fle choosen"/>
+
+
+                                <Label maxWidth="200" minWidth="120" prefWidth="180" style=" -fx-font-size: 14px;"
+                                       text="   Partnership Deed.">
+                                </Label>
+                                <Button fx:id="btnAreaHeadCreateImgPartnership" minWidth="100" mnemonicParsing="false"
+                                        prefHeight="30.0" prefWidth="104.0" text="Choose File"/>
+                                <TextField fx:id="tfAreaHeadCreatePartnership" minWidth="100" prefHeight="30.0"
+                                           prefWidth="159.0" promptText="No fle choosen"/>
+
+
+                            </HBox>
+
+
+                        </VBox>
+                    </VBox>
+
+                </VBox>
+            </center>
+
+
+        </BorderPane>
+
+    </content>
+</ScrollPane>

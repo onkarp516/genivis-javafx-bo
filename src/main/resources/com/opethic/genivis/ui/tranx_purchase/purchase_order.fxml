@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bpPurOrderRootPane" style="-fx-background-color: #d9f0fb;"
+            stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_purchase.PurchaseOrderController">
+    <top>
+        <VBox id="topMainDiv" alignment="CENTER_LEFT">
+            <BorderPane.margin>
+                <Insets/>
+            </BorderPane.margin>
+            <children>
+                <VBox id="topInnerDiv">
+                    <children>
+                        <HBox id="topInnerHbOne" fx:id="topInnerHbOne" alignment="CENTER_LEFT" spacing="20.0">
+
+                            <children>
+                                <Label text="Tranx Date"/>
+                                <TextField fx:id="tfPurOrderTranxDate" promptText="DD/MM/YYYY"/>
+                                <HBox id="lblLedgerName" alignment="CENTER_LEFT" styleClass="lblLedgerName">
+                                    <Label text="Ledger Name"/>
+                                    <Label style="-fx-text-fill: red;" text="*"/>
+                                </HBox>
+                                <!--                        <Label text="Ledger Name"/>-->
+                                <TextField fx:id="tfPurOrdLedgerName" promptText="Ledger Name" HBox.hgrow="ALWAYS"
+                                           editable="false"/>
+                                <Label text="Supplier GSTIN"/>
+                                <ComboBox fx:id="cmbPurOrderSupplierGST" promptText="Supplier GST"/>
+                                <Label text="Purchase Serial"/>
+                                <TextField fx:id="tfPurOrdPurchaseSerial"/>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                        </HBox>
+
+                        <HBox id="topInnerHbTwo" fx:id="topInnerHbTwo" alignment="CENTER_LEFT" spacing="20.0">
+                            <HBox id="poOrderNo" alignment="CENTER_LEFT">
+                                <Label text="Order No"/>
+                                <Label style="-fx-text-fill: red;" text="*"/>
+                            </HBox>
+                            <!--                        <Label text="Order No *"/>-->
+                            <TextField fx:id="tfPurOrdOrderNo"/>
+                            <HBox id="poOrderDate" alignment="CENTER_LEFT">
+                                <Label text="Order Date"/>
+                                <Label style="-fx-text-fill: red;" text="*"/>
+                            </HBox>
+                            <!--                          <Label  text="Order Date" />-->
+                            <TextField fx:id="tfPurOrderOrderDate" promptText="DD/MM/YYYY"/>
+                            <Label text="Purchase A/C"/>
+                            <ComboBox fx:id="cmbPurOrderPurchaAc" promptText="Purchase Account"/>
+                            <Button fx:id="addRowInCmpTRow" visible="false"/>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </top>
+    <center>
+
+        <TableView fx:id="tblvPurOrderCmpTRow" editable="true" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tblcPurOrderCmpTRowSrNo" resizable="false" text=""/> <!-- 0 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowParticulars" text="Particulars"/> <!-- 1 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowPacking" text="Package"/> <!-- 2 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowA" text="AAAAAA"/> <!-- 3 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowB" text="BBBBBB"/> <!-- 4 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowC" text="CCCCCC"/> <!-- 5 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowUnit" text="Unit"/> <!-- 6 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowQuantity" text="Quantity"/> <!-- 7 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowFreeQty" text="Free Qty"/> <!-- 8 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowRate" text="Rate"/> <!-- 9 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowGrossAmt" text="Gross Amount"/> <!-- 10 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowDisPer" text="Disc. %"/> <!-- 11 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowDisAmt" text="Disc. Amt."/> <!-- 12 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowTaxPer" text="Tax %"/> <!-- 13 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowNetAmt" text="Net Amount"/> <!-- 14 -->
+                <TableColumn fx:id="tblcPurOrderCmpTRowAction" resizable="false" text="Action"/> <!-- 15 -->
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox fx:id="poBottomMain" alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <VBox fx:id="poBottomFirstV" HBox.hgrow="ALWAYS">
+                    <children>
+                        <TabPane fx:id="tranxPurOrderTabPane">
+                            <Tab fx:id="tabPurOrderLedger" closable="false" text="Ledger">
+                                <VBox id="tabMianDiv" alignment="CENTER_LEFT">
+                                    <VBox id="mainGridStyle">
+                                        <children>
+                                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                <children>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="GST No. :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderGstNo"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Area :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderArea"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Bank :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderBank"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          styleClass="gridCommonTextStyle">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Contact Person :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderContactPerson"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Transport :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderTransportName"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Credit Days :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderCreditDays"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="FSSAI :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderFssai"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="License No :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderLicenseNo"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Route :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderRoute"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                </VBox>
+                            </Tab>
+                            <Tab fx:id="tabPurOrderProduct" closable="false" text="Product">
+                                <VBox id="tabMianDiv">
+                                    <VBox id="mainGridStyle">
+                                        <children>
+                                            <HBox spacing="10.0">
+                                                <children>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Brand :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductBrand"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Group :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductGroup"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Sub Group :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductSubGroup"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Category :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductCategory"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox id="rightBorder" spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="HSN :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductHsn"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Tax Type :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductTaxType"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Tax % :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductTaxPer"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Margin % :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductMarginPer"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                    <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                                                        <children>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Cost :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductCost"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Shelf ID :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductShelfId"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Min stock :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductMinStock"/>
+                                                                </children>
+                                                            </HBox>
+                                                            <HBox spacing="5.0">
+                                                                <children>
+
+                                                                    <Text id="gridCommonTextStyle" fill="#b8762b"
+                                                                          text="Max Stock :  ">
+                                                                        <font>
+                                                                            <Font size="14.0"/>
+                                                                        </font>
+                                                                    </Text>
+                                                                    <Text id="gridCommonTextStyleBlack"
+                                                                          fx:id="txtPurOrderProductMaxStock"/>
+                                                                </children>
+                                                            </HBox>
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                </VBox>
+                            </Tab>
+                        </TabPane>
+                        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #e9f7fd;">
+
+                            <Text id="label" styleClass="label" text="Narration"/>
+                            <TextField fx:id="tfPurOrdNarration" promptText="Enter Narration" HBox.hgrow="ALWAYS"/>
+                            <padding>
+                                <Insets left="10.0" right="10.0"/>
+                            </padding>
+                        </HBox>
+                        <VBox id="supplierTableMainDiv">
+                            <children>
+                                <TableView fx:id="tvPurOrderSupplierDetails" styleClass="supplierTableStyle">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <columns>
+                                        <TableColumn fx:id="tcPurOrderSupplerName" text="Supplier Name"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerInvNo" text="Inv No"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerInvDate" text="Inv Date"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerBatch" text="Batch"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerMrp" text="MRP"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerQty" text="Qty"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerRate" text="Rate"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerCost" text="Cost"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerDisPer" text="Dis %"/>
+                                        <TableColumn fx:id="tcPurOrderSupplerDisRs" text="Dis Rs"/>
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+                <VBox fx:id="poBottomSecondV" style="-fx-border-color: #dcdcdc; -fx-border-width: 0 0 0 1;">
+                    <children>
+                        <VBox fx:id="poTotalMainDiv" spacing="20.0" style="-fx-background-color: #d2f7e9;">
+                            <children>
+                                <VBox id="sqtotalFirst" fx:id="poTotalMainInnerDiv" spacing="20.0">
+                                    <children>
+                                        <HBox>
+                                            <children>
+
+                                                <Label id="mediumLabel" style="-fx-font-weight: bold;"
+                                                       text="Grand Total" HBox.hgrow="ALWAYS"/>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label id="mediumLabel" fx:id="lblPurOrderGrandTotal"
+                                                       style="-fx-font-weight: bold;" text="0.00"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label id="mediumLabel" style="-fx-font-weight: bold;" text="Discount"/>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label id="mediumLabel" fx:id="lblPurOrderDiscount"
+                                                       style="-fx-font-weight: bold;" text="0.00"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label id="mediumLabel" style="-fx-font-weight: bold;" text="Total"/>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label id="mediumLabel" fx:id="lblPurOrderTotal"
+                                                       style="-fx-font-weight: bold;" text="0.00"/>
+                                            </children>
+                                        </HBox>
+                                        <HBox>
+                                            <children>
+                                                <Label id="mediumLabel" style="-fx-font-weight: bold;" text="Tax"/>
+                                                <Region HBox.hgrow="ALWAYS"/>
+                                                <Label id="mediumLabel" fx:id="lblPurOrderTax"
+                                                       style="-fx-font-weight: bold;" text="0.00"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <HBox id="sqtotalsecond" style="-fx-background-color: #a0efd2;">
+                                    <children>
+                                        <Label id="bigLabel" text="Bill Amount"/>
+                                        <Region HBox.hgrow="ALWAYS"/>
+                                        <Label id="bigLabel" fx:id="lblPurOrderBillAmount" text="0.00"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                        <Region VBox.vgrow="ALWAYS"/>
+
+                        <HBox id="sqbuttonsMainDiv" alignment="BOTTOM_RIGHT" spacing="10.0">
+                            <Button styleClass="submit-btn" fx:id="btnPurOrderSubmit" text="Submit"
+                                    />
+                            <Button fx:id="btnPurOrderModify" onAction="#backToListModify" styleClass="submit-btn"
+                                    text="Modify"/>
+                            <Button fx:id="btnPurOrderCancel" onAction="#backToList" styleClass="cancel-btn"
+                                    text="Cancel"/>
+
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

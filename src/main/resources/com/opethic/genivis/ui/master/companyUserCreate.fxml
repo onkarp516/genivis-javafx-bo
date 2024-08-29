@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootCompanyUserCreate" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.master.CompanyUserCreateController">
+    <top>
+        <VBox id="topMainDiv" fx:id="starVbox" spacing="10.0">
+            <HBox alignment="CENTER_LEFT">
+
+                <Label id="bigLabel" style="-fx-text-fill: #00a0f5;" text="User Details:" underline="true" />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+
+                <Label text="Company Name" />
+                <ComboBox fx:id="cmbCmpuserCreateCmpName" onAction="#getIdOfCompany" promptText="Select" />
+
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="User Role" />
+                    <Label style="-fx-text-fill: red;" text="*" />
+                </HBox>
+                <ComboBox fx:id="cmbCmpuserCreateRoleName" onAction="#getIdOfUserRole" promptText="Select" />
+
+                <Label text="Full Name" />
+                <TextField fx:id="tfCmpUserCreateFullName" promptText="Full Name" />
+
+                <Label text="Mobile No." />
+                <TextField fx:id="tfCmpUserCreateMobileNo" promptText="Mobile No." />
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+
+                <Label id="compAdminTfEmail" text="E-mail" />
+                <TextField fx:id="tfCmpUserCreateEmail" promptText="Enter Email" />
+                <Label id="compUserGender" text="Gender">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <!--                     <RadioButton fx:id="rbCmpUserCreateMale" minWidth="60" mnemonicParsing="false" prefHeight="21.0" prefWidth="60.0" text="Male">-->
+                <!--                        <HBox.margin>-->
+                <!--                           <Insets left="60.0" right="30.0" top="15.0" />-->
+                <!--                        </HBox.margin>-->
+                <!--                        <font>-->
+                <!--                           <Font size="15.0" />-->
+                <!--                        </font>-->
+                <!--                     </RadioButton>-->
+                <!--                     <RadioButton fx:id="rbCmpUserCreateFemale" minWidth="70" mnemonicParsing="false" prefHeight="21.0" prefWidth="80.0" text="Female">-->
+                <!--                        <font>-->
+                <!--                           <Font size="15.0" />-->
+                <!--                        </font>-->
+                <!--                        <HBox.margin>-->
+                <!--                           <Insets left="30.0" right="90.0" top="15.0" />-->
+                <!--                        </HBox.margin>-->
+                <!--                     </RadioButton>-->
+                <ComboBox fx:id="cmbGenderComUser" onAction="#handleGenderSelection" />
+                <Label text="Username" />
+                <TextField fx:id="tfCmpUserCreteUsername" promptText="Enter Username" />
+                <Label text="Password" />
+                <PasswordField fx:id="tfCmpUserCreatePassword" promptText="Enter password" />
+                <TextField fx:id="tfCmpUserCreatePasswordInvisible" promptText="Enter password" visible="false" />
+                <Button fx:id="btnPassword" onAction="#showHidePassword">
+                </Button>
+                <HBox.margin>
+                    <Insets right="50.0" />
+                </HBox.margin>
+
+            </HBox>
+
+
+        </VBox>
+
+    </top>
+    <center>
+        <VBox style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <children>
+                <HBox id="supplierTableMainDiv" alignment="CENTER_LEFT" style="-fx-background-color: #fff4df;">
+                    <children>
+                        <Label id="bigLabel" maxWidth="1920.0" minWidth="800.0" prefHeight="24.0" prefWidth="1920.0" style="-fx-text-fill: #00a0f5;" text="Access Permissions" underline="true">
+                            <padding>
+                                <Insets bottom="10.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+                <VBox fx:id="cUserAccess" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox id="sqbuttonsMainDiv" alignment="CENTER_RIGHT" spacing="10" style="-fx-background-color: #fff;">
+
+            <Button fx:id="btnCmpUserCreateSubmit" mnemonicParsing="false" onAction="#createEdit" styleClass="submit-btn" text="Submit" />
+            <Button fx:id="btnCmpUserCreateCancel" mnemonicParsing="false" onAction="#alertBox" styleClass="cancel-btn" text="Cancel" />
+        </HBox>
+    </bottom>
+</BorderPane>

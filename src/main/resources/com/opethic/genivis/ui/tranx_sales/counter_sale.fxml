@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.VBox?>
+<?import com.opethic.genivis.controller.commons.SwitchButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<ScrollPane fx:id="spCounterSaleRootPane" fitToHeight="true" fitToWidth="true" style="-fx-background-color:#d9f0fb"
+            stylesheets="@../css/counterSale.css" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.opethic.genivis.controller.tranx_sales.CounterSaleController">
+
+    <content>
+        <BorderPane style="-fx-background-color:#d9f0fb">
+            <top>
+                <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: white;">
+                    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++2nd Main VBox++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+                    <VBox>
+                        <HBox alignment="CENTER_LEFT" maxHeight="50" minHeight="50" prefHeight="50"
+                              style="-fx-background-color:  #d9f0fb;">
+
+                            <padding>
+                                <Insets bottom="20" left="10" right="10" top="50"/>
+                            </padding>
+
+                            <Label minWidth="90" prefWidth="90" maxWidth="90"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Mobile No.">
+                                <padding>
+                                    <Insets right="10"></Insets>
+                                </padding>
+                            </Label>
+                            <TextField fx:id="tfCounterCreateMobile" minWidth="130" prefWidth="180" maxWidth="180"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                       promptText="Mobile No." HBox.hgrow="ALWAYS"/>
+                            <Label minWidth="100" prefWidth="100" maxWidth="100"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Consumer">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+                            <VBox fx:id="vboxConsumer" layoutX="327.0" layoutY="25.0" prefHeight="23.0" maxHeight="23.0"
+                                  minHeight="23.0" prefWidth="35.5" minWidth="35.5" maxWidth="35.5"
+                                  style="-fx-background-color: #f8f4fc; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: #f8f4fc; -fx-border-width: 2;">
+                                <SwitchButton fx:id="switchConsumer" minWidth="32.0" maxWidth="32.0" prefWidth="32.0"/>
+                            </VBox>
+                            <Label fx:id="lblConsumerCName" minWidth="70" prefWidth="70" maxWidth="70"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Name" visible="false">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+                            <TextField fx:id="tfConsumerCName" minWidth="100" prefWidth="170" maxWidth="170"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                       promptText="Consumer Name" HBox.hgrow="ALWAYS" visible="false"/>
+
+                            <Label fx:id="lblConsumerCAddress" minWidth="100" prefWidth="95" maxWidth="95"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Address" visible="false">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+
+                            <TextField fx:id="tfConsumerCAddress" minWidth="100" prefWidth="230" maxWidth="230"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                       promptText="Customer Address" HBox.hgrow="ALWAYS" visible="false"/>
+                            <Label fx:id="lblConsumerDoctorName" minWidth="100" prefWidth="100" maxWidth="100"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Dr.Name" visible="false">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+
+                            <TextField fx:id="tfConsumerDoctorName" minWidth="100" prefWidth="170" maxWidth="170"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                       promptText="Doctor Name" HBox.hgrow="ALWAYS" visible="false"/>
+
+                            <Label fx:id="lblConsumerDoctorAddress" minWidth="100" prefWidth="110" maxWidth="150"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Dr. Address" visible="false">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+
+                            <TextField fx:id="tfConsumerDoctorAddress" minWidth="100" prefWidth="200" maxWidth="200"
+                                       style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                       promptText="Doctor Address" HBox.hgrow="ALWAYS" visible="false"/>
+                            <Label fx:id="lblConsumerPrescription" minWidth="100" prefWidth="120" maxWidth="120"
+                                   style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "
+                                   text="Prescription" visible="false">
+                                <padding>
+                                    <Insets left="15" right="10"></Insets>
+                                </padding>
+                            </Label>
+
+                            <!--                            <TextField  fx:id="tfConsumerPrescription" minWidth="100" prefWidth="150" maxWidth="150" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "-->
+                            <!--                                        promptText="Add Prescription"  HBox.hgrow="ALWAYS" visible="false"/>-->
+                            <Button fx:id="btnConsumerPrescription" mnemonicParsing="false" text="Add" visible="false"/>
+                            <!--                            <Button fx:id="addRowInCounterSale"  mnemonicParsing="false" text=""  visible="true" />-->
+
+                        </HBox>
+
+
+                    </VBox>
+
+                </VBox>
+
+            </top>
+            <center>
+                <VBox>
+                    <padding>
+                        <Insets bottom="0" top="30"/>
+                    </padding>
+                    <TableView fx:id="tblvCounterSaleView" minHeight="200" prefWidth="730" maxHeight="365">
+                        <columns>
+                            <TableColumn fx:id="tblcCounterSaleSrNo" text="Sr.No."/>
+                            <TableColumn fx:id="tblcCounterSaleParticular" text="Particulars"/>
+                            <TableColumn fx:id="tblcCounterSalePackage" text="Package"/>
+                            <TableColumn fx:id="tblcCounterSaleLevelA" text="AAAAAA" visible="true"/>
+                            <TableColumn fx:id="tblcCounterSaleLevelB" text="BBBBBB" visible="true"/>
+                            <TableColumn fx:id="tblcCounterSaleLevelC" text="CCCCCC" visible="true"/>
+                            <TableColumn fx:id="tblcCounterSaleUnit" text="Unit"/>
+                            <TableColumn fx:id="tblcCounterSaleBatchNo" text="Batch No"/>
+                            <TableColumn fx:id="tblcCounterSaleQty" text="Quantity"/>
+                            <TableColumn fx:id="tblcCounterSaleRate" text="Rate"/>
+                            <TableColumn fx:id="tblcCounterSaleDIscPer" text="Dis %"/>
+                            <TableColumn fx:id="tblcCounterSaleNetAmt" text="Net Amt"/>
+                            <TableColumn fx:id="tblcCounterSaleAction" text="Action"/>
+
+                        </columns>
+                    </TableView>
+                    <VBox>
+                        <padding>
+                            <Insets bottom="0" top="5"/>
+                        </padding>
+                        <!--                        <HBox style="-fx-background-color:#d2f7e9;" minHeight="40" maxHeight="40" prefHeight="40" alignment="CENTER_LEFT">-->
+                        <!--                            <padding>-->
+                        <!--                                <Insets  top="0" />-->
+                        <!--                            </padding>-->
+                        <!--                            <Label minWidth="100" prefWidth="120" maxWidth="120" style="-fx-font-weight: bold; -fx-font-size: 14px;-fx-text-fill: black; "-->
+                        <!--                                   text="Payment Mode" />-->
+
+                        <!--                            <RadioButton fx:id="rbPaymentModeCash" mnemonicParsing="false"  prefHeight="17.0" prefWidth="73.0" text="Cash" />-->
+                        <!--                            <RadioButton fx:id="rbPaymentModeMulti"  mnemonicParsing="false"  prefHeight="17.0" prefWidth="71.0" text="Multi" />-->
+
+                        <!--                            <TextField fx:id="tfCounterSaleDiscPer"  prefHeight="25.0" prefWidth="92.0" promptText="Disc.%" visible="false" >-->
+
+                        <!--                            </TextField>-->
+                        <!--                            <Label prefHeight="19.0" prefWidth="101.0" text="Gross Total   :">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Label fx:id="lblCounterSaleGrossTotal" prefHeight="19.0" prefWidth="45.0" text="0.00">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Line endX="-320.0" endY="10.0"  startX="-320.0" startY="-4.0" stroke="#c9c5c5" />-->
+                        <!--                            <Label prefHeight="19.0" prefWidth="57.0" text="Disc.    :">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Label fx:id="lblCounterSaleDis" prefHeight="19.0" prefWidth="45.0" text="0.00">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Line endX="-320.0" endY="10.0"  startX="-320.0" startY="-4.0" stroke="#c9c5c5" />-->
+                        <!--                            <Label prefHeight="18.0" prefWidth="47.0" text="Total  :">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Label fx:id="lblCounterSaleTotal" prefHeight="19.0" prefWidth="55.0" text="0.00">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Line endX="-132.0" endY="16.0" startX="-132.0" startY="3.0" stroke="#c9c5c5" />-->
+
+                        <!--                            <Label  prefHeight="18.0" prefWidth="47.0" text="Tax :">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+
+                        <!--                            <Label fx:id="lblCounterSaleTax"  prefHeight="19.0" prefWidth="55.0" text="0.00">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="13.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Line endX="-320.0" endY="10.0"  startX="-320.0" startY="-4.0" stroke="#c9c5c5" />-->
+                        <!--                            <Label  prefHeight="36.0" prefWidth="95.0" text="Bill Amount   :">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="14.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+                        <!--                            <Label fx:id="lblCounterSaleBillAmt"  prefHeight="33.0" prefWidth="98.0" text="0.00">-->
+                        <!--                                <font>-->
+                        <!--                                    <Font size="14.0" />-->
+                        <!--                                </font>-->
+                        <!--                            </Label>-->
+
+                        <!--                        </HBox>-->
+
+                        <GridPane fx:id="gridPane" style="-fx-background-color: #E0FFF0;" hgap="10" vgap="10"
+                                  VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets top="10" right="0" bottom="10" left="10"/>
+                            </padding>
+
+                            <!-- Payment Mode Label -->
+                            <Label text="Payment Mode*" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                   GridPane.fillWidth="true"/>
+
+                            <!-- Radio Buttons for Payment Mode -->
+                            <HBox spacing="10" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.fillWidth="true">
+                                <padding>
+                                    <Insets top="5"/>
+                                </padding>
+                                <children>
+                                    <RadioButton text="Cash" selected="true" fx:id="rbPaymentModeCash">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="paymentModeGroup1"/>
+                                        </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton text="Multi" fx:id="rbPaymentModeMulti">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="paymentModeGroup2"/>
+                                        </toggleGroup>
+                                    </RadioButton>
+                                </children>
+                            </HBox>
+                            <TextField fx:id="tfCounterSaleDiscPer" GridPane.rowIndex="0" GridPane.columnIndex="2"
+                                       GridPane.fillWidth="true" promptText="Disc.%" visible="false"></TextField>
+
+                            <!-- Labels for totals -->
+                            <Label text="Gross Total: " GridPane.rowIndex="0" GridPane.columnIndex="3"
+                                   GridPane.fillWidth="true"/>
+                            <Label text=" 0.00" fx:id="lblCounterSaleGrossTotal" GridPane.rowIndex="0"
+                                   GridPane.columnIndex="4" GridPane.fillWidth="true"/>
+                            <Label text="Disc: " GridPane.rowIndex="0" GridPane.columnIndex="5"
+                                   GridPane.fillWidth="true"/>
+                            <Label text="0.00 " fx:id="lblCounterSaleDis" GridPane.rowIndex="0" GridPane.columnIndex="6"
+                                   GridPane.fillWidth="true"/>
+                            <Label text="Total: " GridPane.rowIndex="0" GridPane.columnIndex="7"
+                                   GridPane.fillWidth="true"/>
+                            <Label text="0.00 " fx:id="lblCounterSaleTotal" GridPane.rowIndex="0"
+                                   GridPane.columnIndex="8" GridPane.fillWidth="true"/>
+                            <Label text="Tax: " GridPane.rowIndex="0" GridPane.columnIndex="9"
+                                   GridPane.fillWidth="true"/>
+                            <Label text="0.00" fx:id="lblCounterSaleTax" GridPane.rowIndex="0" GridPane.columnIndex="10"
+                                   GridPane.fillWidth="true"/>
+                            <Label text="Bill Amount: " GridPane.rowIndex="0" GridPane.columnIndex="11"
+                                   GridPane.fillWidth="true"/>
+                            <Label text=" 0.00" fx:id="lblCounterSaleBillAmt" GridPane.rowIndex="0"
+                                   GridPane.columnIndex="12" GridPane.fillWidth="true"/>
+
+                            <columnConstraints>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+
+                            </rowConstraints>
+                        </GridPane>
+
+                        <HBox spacing="10">
+                            <padding>
+                                <Insets right="10" top="10" bottom="5"></Insets>
+                            </padding>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Button fx:id="btnCounterSaleSubmit" mnemonicParsing="false" prefHeight="25.0"
+                                    prefWidth="75.0"
+                                    style="-fx-background-color: D9F0FB; -fx-border-color: #21c78a; -fx-border-radius: 5; -fx-border-width: 2;"
+                                    text="Submit"/>
+                            <!--                            <Button fx:id="btnCounterSaleCancel" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: D9F0FB; -fx-border-color: A0AAB4; -fx-border-radius: 5; -fx-border-width: 2;" text="Cancel" />-->
+
+                        </HBox>
+                    </VBox>
+                    <HBox spacing="40"
+                          style="-fx-background-color:#d9f0fb;">
+                        <HBox>
+                            <VBox alignment="TOP_LEFT" spacing="10"
+                                  style="-fx-background-color: #d9f0fb;">
+                                <padding>
+                                    <Insets bottom="10" left="5" right="5" top="0"/>
+                                </padding>
+
+                                <TabPane fx:id="tpSalesOrder" minWidth="1060" maxWidth="1960" prefWidth="1960"
+                                         style="-fx-background-color: #d9f0fb;" tabClosingPolicy="UNAVAILABLE"
+                                         minHeight="200" HBox.hgrow="ALWAYS">
+                                    <tabs>
+
+                                        <Tab fx:id="tabSalesOrderLedger"
+                                             style="-fx-background-color:#d9f0fb;-fx-font-weight:800;-fx-border-color:#d9f0fb"
+                                             text="Counter Sale">
+                                            <content>
+                                                <VBox style="-fx-background-color: #d9f0fb;" spacing="10">
+                                                    <padding>
+                                                        <Insets top="10" left="10"/>
+                                                    </padding>
+                                                    <HBox>
+                                                        <Label prefHeight="18.0" prefWidth="85.0" text="Data Type"/>
+                                                        <RadioButton fx:id="rbCounterSaleInvoice"
+                                                                     mnemonicParsing="false" prefHeight="17.0"
+                                                                     prefWidth="90.0" maxWidth="100" text="Invoices"
+                                                                     HBox.hgrow="ALWAYS"/>
+                                                        <RadioButton fx:id="rbCounterSaleProducts"
+                                                                     mnemonicParsing="false" prefHeight="17.0"
+                                                                     prefWidth="90.0" text="Products"
+                                                                     HBox.hgrow="ALWAYS"/>
+                                                        <Label prefHeight="18.0" prefWidth="200" maxWidth="200" text="">
+                                                            <padding>
+                                                                <Insets right="400"></Insets>
+                                                            </padding>
+                                                        </Label>
+                                                        <Label prefHeight="18.0" prefWidth="100" maxWidth="100"
+                                                               text="Payment Mode">
+
+                                                        </Label>
+                                                        <RadioButton fx:id="rbCounterSalePMAll" mnemonicParsing="false"
+                                                                     prefHeight="17.0" prefWidth="60.0" text="All"
+                                                                     HBox.hgrow="ALWAYS"/>
+                                                        <RadioButton fx:id="rbCounterSalePMCash" mnemonicParsing="false"
+                                                                     prefHeight="17.0" prefWidth="60.0" text="Cash"
+                                                                     HBox.hgrow="ALWAYS"/>
+                                                        <RadioButton fx:id="rbCounterSalePMMulti"
+                                                                     mnemonicParsing="false" prefHeight="17.0"
+                                                                     prefWidth="60.0" text="Multi" HBox.hgrow="ALWAYS"/>
+                                                        <Region HBox.hgrow="ALWAYS"/>
+                                                        <HBox spacing="10">
+                                                            <padding>
+                                                                <Insets left="15" right="25" bottom="10"/>
+                                                            </padding>
+                                                            <Button fx:id="btnCounterSaleToSaleInvoice"
+                                                                    mnemonicParsing="false" prefHeight="25.0"
+                                                                    prefWidth="100.0"
+                                                                    style="-fx-background-color: D9F0FB; -fx-border-color: #21c78a; -fx-border-radius: 5; -fx-border-width: 2;"
+                                                                    text="To Invoice"/>
+                                                        </HBox>
+
+                                                    </HBox>
+
+
+                                                    <HBox minHeight="200" prefHeight="250" maxHeight="300">
+                                                        <TableView fx:id="tblvCounterSaleList" layoutX="6.0"
+                                                                   layoutY="46.0" prefHeight="103.0" prefWidth="1902.0"
+                                                                   editable="true"
+                                                                   stylesheets="@../css/counter_sale_list.css">
+                                                            <columns>
+                                                                <TableColumn fx:id="tblcCounterSaleSelect"
+                                                                             text="Select"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListInvNo"
+                                                                             text="Inv No "/>
+                                                                <TableColumn fx:id="tblcCounterSaleListInvDate"
+                                                                             text="Inv Date"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListMobile"
+                                                                             text="Mobile"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListQty" text="Qty"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListBillAmt"
+                                                                             text="Bill Amount"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListProduct"
+                                                                             text="Product" visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListPackage"
+                                                                             text="Package" visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListUnit" text="Unit"
+                                                                             visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListBatch"
+                                                                             text="Batch/Serial" visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListRate" text="Rate"
+                                                                             visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListDis" text="Dis"
+                                                                             visible="false"/>
+                                                                <TableColumn fx:id="tblcCounterSaleListPayMode"
+                                                                             text="Pay.Mode"/>
+                                                            </columns>
+                                                        </TableView>
+                                                    </HBox>
+                                                </VBox>
+                                            </content>
+                                        </Tab>
+                                        <Tab fx:id="tabSalesOrderProduct"
+                                             style="-fx-background-color:#d9f0fb;-fx-font-weight:800;-fx-border-color:#C8DCE5"
+                                             text="Consumer Sales">
+                                            <content>
+                                                <VBox style="-fx-background-color: #d9f0fb;" spacing="10">
+                                                    <padding>
+                                                        <Insets top="10" left="10"/>
+                                                    </padding>
+
+
+                                                    <HBox minHeight="240" prefHeight="290" maxHeight="340">
+                                                        <TableView fx:id="tblcConsumerSaleList" prefHeight="200.0"
+                                                                   prefWidth="1920.0"
+                                                                   stylesheets="@../css/counter_sale_list.css">
+                                                            <columns>
+                                                                <!--                                                                <TableColumn fx:id="tblcConsumerSaleListSelect"  text="Select" />-->
+                                                                <TableColumn fx:id="tblcConsumerSaleListInvNo"
+                                                                             text="Inv No"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListInvDate"
+                                                                             text="Inv Date"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListClientName"
+                                                                             text="Client Name"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListClientAddress"
+                                                                             text="Client Address"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListMobile"
+                                                                             text="Mobile"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListQty"
+                                                                             text="Qty"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListBillAmt"
+                                                                             text="Bill Amount"/>
+                                                                <TableColumn fx:id="tblcConsumerSaleListPayMod"
+                                                                             text="Pay Mode"/>
+                                                            </columns>
+                                                        </TableView>
+                                                    </HBox>
+
+                                                </VBox>
+                                            </content>
+                                        </Tab>
+                                        <Tab fx:id="tabSalesOrderProduct1"
+                                             style="-fx-background-color:#d9f0fb;-fx-font-weight:800;-fx-border-color:#C8DCE5"
+                                             text="History">
+                                            <content>
+                                                <HBox style="-fx-background-color: #d9f0fb;">
+                                                    <padding>
+                                                        <Insets top="10" left="10"/>
+                                                    </padding>
+                                                    <children>
+
+                                                    </children>
+                                                </HBox>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+
+                            </VBox>
+                        </HBox>
+                    </HBox>
+                </VBox>
+            </center>
+        </BorderPane>
+
+    </content>
+</ScrollPane>
+

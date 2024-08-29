@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bpRoot" stylesheets="@../css/TranxCommonCssStyles/tranxCommonCssStyle7.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.users.UserRoleCreateController">
+   <top>
+      <VBox id="topMainDiv" style="-fx-background-color: #ffffee;" BorderPane.alignment="CENTER">
+         <children>
+
+               <HBox alignment="CENTER_LEFT" spacing="10">
+               <HBox alignment="CENTER_LEFT">
+                  <Label text="Role" />
+                  <Label style="-fx-text-fill: red;" text="*" />
+               </HBox>
+               <TextField fx:id="tfroletitle" promptText="Enter role title" />
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox id="topMainDiv" fx:id="vbaccess" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Access Permissions" textFill="#08a2f5">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox id="sqbuttonsMainDiv" alignment="BOTTOM_RIGHT" spacing="10">
+         <Button fx:id="btnRoleCreateSubmit" styleClass="submit-btn" text="Submit" />
+         <Button fx:id="btnRoleCreateCancel" styleClass="cancel-btn" text="Cancel" />
+
+      </HBox>
+   </bottom>
+</BorderPane>

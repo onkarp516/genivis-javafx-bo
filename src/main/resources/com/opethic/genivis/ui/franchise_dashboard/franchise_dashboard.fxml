@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane style="-fx-background-color: #d9f0fb;" stylesheets="@../css/franchiseDashboardStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.opethic.genivis.controller.franchise_dashboard.FranchiseDashboard">
+    <center>
+        <VBox spacing="25.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" maxHeight="300.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <HBox id="firstBox" alignment="CENTER" maxWidth="300.0" styleClass="firstBox" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox alignment="CENTER" spacing="25.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fitHeight="150.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/franchise_dashboard/gvNewLogo.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../assets/franchise_dashboard/ethiqNewLogo.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="15.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="firstBox" HBox.hgrow="ALWAYS">
+                            <StackPane fx:id="firstStack" HBox.hgrow="ALWAYS">
+                                <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="400.0" />
+                                <Button id="prevBtnStyle" fx:id="prevButton" contentDisplay="CENTER" onAction="#prevImage" styleClass="prevBtnStyle" StackPane.alignment="CENTER_LEFT">
+                                 <graphic>
+                                    <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/franchise_dashboard/prev.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                                <Button id="nextBtnStyle" fx:id="nextButton" contentDisplay="CENTER" onAction="#nextImage" styleClass="nextBtnStyle" StackPane.alignment="CENTER_RIGHT">
+                                 <graphic>
+                                    <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/franchise_dashboard/next.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                            </StackPane>
+                        </HBox>
+                        <HBox alignment="CENTER" styleClass="firstBox" HBox.hgrow="ALWAYS">
+                           <children>
+                              <StackPane fx:id="secondStack" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <ImageView fx:id="imageView1" fitHeight="300.0" fitWidth="400.0" />
+                                    <Button id="prevBtnStyle" fx:id="prevButton1" contentDisplay="CENTER" onAction="#prevImage1" styleClass="prevBtnStyle" StackPane.alignment="CENTER_LEFT">
+                                       <graphic>
+                                          <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/franchise_dashboard/prev.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
+                                    <Button id="nextBtnStyle" fx:id="nextButton1" contentDisplay="CENTER" onAction="#nextImage1" styleClass="nextBtnStyle" StackPane.alignment="CENTER_RIGHT">
+                                       <graphic>
+                                          <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../assets/franchise_dashboard/next.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                    </children>
+                </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox maxWidth="300.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="middleCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="topFrText" text="Top Franchises" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tblvFrDashboardTopFr" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="tblcFrDashboardSrNo" prefWidth="75.0" text="C1" />
+                                          <TableColumn fx:id="tblcFrDashboardFrName" prefWidth="75.0" text="C2" />
+                                       </columns>
+                                    </TableView>
+                                    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label id="viewAllStyle" styleClass="viewAllStyle" text="View All Products" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="15.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="middleCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="topFrText" text="Cash Summary" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" styleClass="greenBtnStyle" text="Outstanding" />
+                                          <Button mnemonicParsing="false" styleClass="whiteBtnStyle" text="Payable" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tblvFrDashboardCashSummary" VBox.vgrow="ALWAYS">
+                                       <columns>
+                                          <TableColumn fx:id="tblcFrDashboardLedgerName" prefWidth="75.0" text="C1" />
+                                          <TableColumn fx:id="tblcFrDashboardAmount" prefWidth="75.0" text="C2" />
+                                          <TableColumn fx:id="tblcFrDashboardDays" prefWidth="75.0" text="C2" />
+                                       </columns>
+                                    </TableView>
+                                    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label id="viewAllStyle" styleClass="viewAllStyle" text="View All Products" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" styleClass="middleCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="topFrText" text="Products" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" styleClass="greenBtnStyle" text="Top Suppliers" />
+                                          <Button mnemonicParsing="false" styleClass="whiteBtnStyle" text="Top Sellers" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tblvFrDashboardProducts" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="tblcFrDashboardNumber" prefWidth="75.0" text="C1" />
+                                        <TableColumn fx:id="tblcFrDashboardProductsName" prefWidth="75.0" text="C2" />
+                                      </columns>
+                                    </TableView>
+                                    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label id="viewAllStyle" styleClass="viewAllStyle" text="View All Products" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" styleClass="middleCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" spacing="8.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="topFrText" text="Transactions" />
+                                          <Region HBox.hgrow="ALWAYS" />
+                                          <ComboBox prefWidth="150.0" />
+                                          <Button mnemonicParsing="false" styleClass="greenBtnStyle" text="Sale" />
+                                          <Button mnemonicParsing="false" styleClass="whiteBtnStyle" text="Purchase" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tblvFrDashboardTranx" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="tblcFrDashboardTranxSrNo" prefWidth="75.0" text="SrNo" />
+                                        <TableColumn fx:id="tblcFrDashboardTranxAddAndName" prefWidth="75.0" text="Details" />
+                                          <TableColumn fx:id="tblcFrDashboardTranxAmt" prefWidth="75.0" text="Amount" />
+                                      </columns>
+                                    </TableView>
+                                    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label id="viewAllStyle" styleClass="viewAllStyle" text="View All Sales" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <HBox maxWidth="300.0" minWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <HBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="topFrText" text="Frequently Accessed" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <HBox maxWidth="300.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="bottomCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="bottomSingleCardStyle" text="Powered by" />
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/franchise_dashboard/OpethicLogo.png" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="bottomSingleCardStyle" text="Opethic Softwares" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="bottomCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/franchise_dashboard/counterSale.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox>
+                                 <children>
+                                    <Label styleClass="bottomCardTitleStyle" text="Counter Sale" />
+                                    <Label styleClass="bottomCardSubTitleStyle" text="Sales" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="bottomCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/franchise_dashboard/stockReport.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox>
+                                 <children>
+                                    <Label styleClass="bottomCardTitleStyle" text="Stock Reports" />
+                                    <Label styleClass="bottomCardSubTitleStyle" text="Reports" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="bottomCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/franchise_dashboard/purchaseInvoice.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox>
+                                 <children>
+                                    <Label styleClass="bottomCardTitleStyle" text="Purchase Invoice" />
+                                    <Label styleClass="bottomCardSubTitleStyle" text="Purchase" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="bottomCards" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/franchise_dashboard/balanceSheet.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox>
+                                 <children>
+                                    <Label styleClass="bottomCardTitleStyle" text="Balance Sheet" />
+                                    <Label styleClass="bottomCardSubTitleStyle" text="Reports" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </center>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</BorderPane>
